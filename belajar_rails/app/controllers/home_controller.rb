@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
   def resource_name
@@ -17,4 +16,15 @@ class HomeController < ApplicationController
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def index
+    #code
+  end
+
+  before_action :authenticate_user! do
+    def landing
+      #code
+    end
+  end
+
 end
