@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
   def resource_name
@@ -18,13 +19,15 @@ class HomeController < ApplicationController
   end
 
   def index
-    #code
+
   end
 
-  before_action :authenticate_user! do
-    def landing
-      #code
-    end
+  def landing
+    # if current_user?
+      redirect_to posts_path
+    # else
+    #   new_user_session_path
+    # end
   end
 
 end

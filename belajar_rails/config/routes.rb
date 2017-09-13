@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/landing'
+  get 'posts/index'
   # devise_for :users
-  devise_for :users, controllers: { registrations: "registrations" }, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
+  devise_for :users, controllers: { registrations: "registrations",
+                                    sessions: "sessions"}, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
   resources :posts
-  get 'posts', to: 'posts#index'
 
   # devise_for :users, :controllers => {
   #   :registrations => "devise/sessions"
